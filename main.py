@@ -3,7 +3,7 @@ import math
 def round_decimal(starting_value, inches):
     rounded_down_value = math.floor(starting_value)
     decimal = starting_value - rounded_down_value
-    rounded_inches = round(inches, len(decimal))
+    rounded_inches = round(inches, len(str(decimal)))
     return rounded_inches
 
 
@@ -13,8 +13,7 @@ def calc(starting_value):
     if inches is int:
         return feet, inches
     elif inches is float:
-        inches = round_decimal(starting_value, inches)
-        return feet, inches
+        return feet, round_decimal(starting_value, inches)
 
 
 input_value = input("Enter a number of inches: ")
