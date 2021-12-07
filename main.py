@@ -10,9 +10,9 @@ def round_decimal(starting_value, inches):
 def calc(starting_value):
     feet = starting_value // 12
     inches = starting_value % 12
-    if inches is int:
+    if type(inches) is int:
         return feet, inches
-    elif inches is float:
+    elif type(inches) is float:
         return feet, round_decimal(starting_value, inches)
 
 
