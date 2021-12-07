@@ -22,7 +22,7 @@ try:
     int(input_value)
 except ValueError:
     feet, inches = calc(float(input_value))
-    print(f"{feet}' {inches}\"")
+    print(f"{int(feet)}' {inches}\"")
 else:
     feet, inches = calc(int(input_value))
-    print(f"{feet}' {inches}\"")
+    print(f"{int(feet)}' {inches}\"")
