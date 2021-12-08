@@ -6,20 +6,25 @@ def calc(starting_value):
     else:
         return float(feet), round(inches, 2)
 
-input_value = input("Enter a number of inches: ")
 
-try:
-    int(input_value)
-except ValueError:
+input_value = input("Enter a number of inches: ")
+repeat = True
+
+while repeat:
     try:
-        float(input_value)
+        int(input_value)
     except ValueError:
-        print("Please give a numeric input")
+        try:
+            float(input_value)
+        except ValueError:
+            input_value = input("Please give a numeric input: ")
+        else:
+            repeat = False
+            feet, inches = calc(float(input_value))
+            print(f"{int(feet)}' {inches}\"")
     else:
-        feet, inches = calc(float(input_value))
+        repeat = False
+        feet, inches = calc(int(input_value))
         print(f"{int(feet)}' {inches}\"")
-else:
-    feet, inches = calc(int(input_value))
-    print(f"{int(feet)}' {inches}\"")
 
 
